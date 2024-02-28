@@ -1,7 +1,7 @@
 export function fetchAllProducts() {
   return new Promise(async (resolve) =>{
     //TODO: we will not hard-code server URL here
-    const response = await fetch('https://laptop-api-8c49.vercel.app/service/products') 
+    const response = await fetch('https://laptop-api-8c49.vercel.app/service') 
     const data = await response.json()
     resolve({data})
   }
@@ -32,7 +32,7 @@ export function fetchProductsByFilters(filter,sort,pagination) {
 
   return new Promise(async (resolve) =>{
     //TODO: we will not hard-code server URL here
-    const response = await fetch('https://laptop-api-8c49.vercel.app/service/products?'+queryString) 
+    const response = await fetch('https://laptop-api-8c49.vercel.app/service?'+queryString) 
     const data = await response.json()
     const totalItems = await response.headers.get('X-Total-Count')
     resolve({data:{products:data,totalItems:+totalItems}})
